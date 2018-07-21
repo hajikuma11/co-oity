@@ -11,7 +11,8 @@ $jsonObj = json_decode($jsonString);
 $message = $jsonObj->{"events"}[0]->{"message"};
 $text = $message->{"text"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
-$userID = $jsonObj->{"events"}[0]->{"source"};
+$source = $jsonObj->{"events"}[0]->{"source"};
+$userID = $source->{"userId"}
 
 //***ID登録処理*************************************************************************************************************************
 if ($text == 'RegID') {
