@@ -97,8 +97,7 @@ elseif ($text == '時刻' or $text == 'じこく') {
  	require_once __DIR__ . ("/main/now.php");
  }
 
- elseif ($text == 'オールなう' or $text == 'オールナウ' or $text == 'おなう'
-      or $text == 'Train' or $text == '電車' or $text == 'train' or $text == 'KyobashiSt'
+ elseif ($text == 'Train' or $text == '電車' or $text == 'train' or $text == 'KyobashiSt'
       or $text == '京橋発' or $text == '京橋から' or $text == 'kh2' or $text == 'NagaoSt'
       or $text == '長尾駅発' or $text == 'Localbus' or $text == 'バス' or $text == 'bus'
       or $text == 'goNag' or $text == 'goNag2' or $text == 'goKita' or $text == 'goKita2'
@@ -107,15 +106,31 @@ elseif ($text == '時刻' or $text == 'じこく') {
     require_once __DIR__ . ("/main/Tr-Bs.php");
 }
 
+elseif ($text == 'オールなう' or $text == 'オールナウ' or $text == 'おナウ' or $text == 'おーるなう' or $text == 'AN') {
+  require_once __DIR__ . ("/main/allNow.php");
+}
+
 //***進数*****************************************************************************************************************************************************************************
 elseif (strstr($text,'進数')) {
   require_once __DIR__ . "(/main/decimal.php)";
 }
 //***レスポンス系*****************************************************************************************************************************************************************************
-$response = [
-    'replyToken' => $replyToken,
-    'messages' => [$messageData]
-];
+if ($msgFlag == 1) {
+  $response = [
+      'replyToken' => $replyToken,
+      'messages' => [$messageData,$messageData2]
+  ];
+} else if ($msgFlag == 2) {
+  $response = [
+      'replyToken' => $replyToken,
+      'messages' => [$messageData,$messageData2,$messageData3]
+  ];
+} else {
+  $response = [
+      'replyToken' => $replyToken,
+      'messages' => [$messageData]
+  ];
+}
 error_log(json_encode($response));
 
 $ch = curl_init('https://api.line.me/v2/bot/message/reply');
