@@ -38,7 +38,7 @@ if ($text == 'forecast' or $text == '天気予報' or $text == 'てんきよほ�
 
 }
 
-elseif ($text == 'WeekOsaka' or $text == 'WeekKyoto' or $text == 'WeekHyogo') {
+elseif ($text == 'WeekOsaka' or $text == 'WeekKyoto' or $text == 'WeekHyogo' or $text == 'WeekWakayama') {
     require_once __DIR__ . ("/main/weath.php");
 }
 
