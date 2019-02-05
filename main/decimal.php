@@ -79,7 +79,7 @@ if ($s_text >= 1) {
                                                 'type' => 'text',
                                                 'text' => "$two",
                                                 'size' => 'sm',
-                                                'color' => '#000000'
+                                                'color' => '#FA5858'
                                             ],
                                             [
                                                 'type' => 'text',
@@ -249,7 +249,7 @@ if ($s_text >= 1) {
                                                 'type' => 'text',
                                                 'text' => "$eig",
                                                 'size' => 'sm',
-                                                'color' => '#000000'
+                                                'color' => '#FA5858'
                                             ],
                                             [
                                                 'type' => 'text',
@@ -438,7 +438,7 @@ if ($s_text >= 1) {
                                                 'type' => 'text',
                                                 'text' => "$sixt",
                                                 'size' => 'sm',
-                                                'color' => '#000000'
+                                                'color' => '#FA5858'
                                             ],
                                             [
                                                 'type' => 'text',
@@ -570,7 +570,7 @@ if ($s_text >= 1) {
                                                 'type' => 'text',
                                                 'text' => "$ten",
                                                 'size' => 'sm',
-                                                'color' => '#000000'
+                                                'color' => '#FA5858'
                                             ],
                                             [
                                                 'type' => 'text',
