@@ -531,8 +531,8 @@ elseif ($text == 'goKitafK2') {
                 ],
                 [
                     'type' => 'postback',
-                    'label' => '２１時～２３時',
-                    'text' => '21~23ku',
+                    'label' => '２１時～',
+                    'text' => '21~ku',
                     'data' => 'value'
                 ]
             ]
