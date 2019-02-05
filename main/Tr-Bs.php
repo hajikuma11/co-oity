@@ -1,36 +1,88 @@
 <?php
 //***交通機関選択**************************************************************************************************************************************************************************
-if ($text == '時刻' || $text == 'じこく') {
+if ($text == '時刻' or $text == 'じこく') {
 
     $messageData = [
-        'type' => 'template',
-        'altText' => '機関選択',
-        'template' => [
-            'type' => 'buttons',
-            'title' => '交通機関',
-            'text' => 'どの交通機関？',
-            'actions' => [
-                [
-                    'type' => 'postback',
-                    'label' => '電車',
-
-                    'text' => 'Train',
-                    'data' => 'value'
-                ],
-                [
-                    'type' => 'postback',
-                    'label' => 'バス',
-
-                    'text' => 'Localbus',
-                    'data' => 'value'
+        'type' => 'flex',
+        'altText' => 'flexmessage',
+        'contents' => [
+            'type' => 'bubble',
+            'body' => [
+                'type' => 'box',
+                'layout' => 'vertical',
+                'contents' => [
+                    [
+                        'type' => 'text',
+                        'text' => '交通機関を選択',
+                        'weight' => 'bold',
+                        'size' => 'xl'
+                    ],
+                    [
+                        'type' => 'box',
+                        'layout' => 'vertical',
+                        'margin' => 'lg',
+                        'spacing' => 'sm',
+                        'contents' => [
+                            [
+                                'type' => 'box',
+                                'layout' => 'baseline',
+                                'spacing' => 'sm',
+                                'contents' => [
+                                    [
+                                        'type' => 'text',
+                                        'text' => '一定の時間ごとの時刻表を表示します',
+                                        'wrap' => true,
+                                        'color' => '#666666',
+                                        'size' => 'sm',
+                                        'flex' => 5
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
                 ]
+            ],
+            'footer' => [
+                'type' => 'box',
+                'layout' => 'horizontal',
+                'spacing' => 'sm',
+                'contents' => [
+                    [
+                        'type' => 'button',
+                        'style' => 'primary',
+                        'height' => 'sm',
+                        'action' => [
+                            'type' => 'postback',
+                            'label' => 'バス',
+                            'text' => 'バス',
+                            'data' => 'empty'
+                        ]
+                    ],
+                    [
+                        'type' => 'button',
+                        'style' => 'primary',
+                        'height' => 'sm',
+                        'action' => [
+                            'type' => 'postback',
+                            'label' => '電車',
+                            'text' => '電車',
+                            'data' => 'empty'
+                        ]
+                    ],
+                    [
+                        'type' => 'spacer',
+                        'size' => 'sm'
+                    ]
+                ],
+                'flex' => 0
             ]
         ]
     ];
+
 }
 
 //***電車の駅選択**************************************************************************************************************************************************************************
-elseif ($text == 'Train' || $text == '電車' || $text == 'train') {
+elseif ($text == 'Train' or $text == '電車' or $text == 'train') {
 
     $messageData = [
         'type' => 'template',
@@ -67,43 +119,43 @@ elseif ($text == 'Train' || $text == '電車' || $text == 'train') {
 }
 
 //***京橋発長尾方面**************************************************************************************************************************************************************************
-elseif ($text == 'KyobashiSt' || $text == '京橋発' || $text == '京橋から') {
+elseif ($text == 'KyobashiSt' or $text == '京橋発' or $text == '京橋から') {
 
-  $messageData = [
-      'type' => 'template',
-      'altText' => '時間帯選択',
-      'template' => [
-          'type' => 'buttons',
-          'title' => '京橋発松井山手・木津方面',
-          'text' => '何時くらい？',
-          'actions' => [
-                      [
-                          'type' => 'postback',
-                          'label' => '６～８時',
-                          'text' => '6~8kh',
-                          'data' => 'value'
-                      ],
-                      [
-                          'type' => 'postback',
-                          'label' => '９～１１時',
-                          'text' => '9~11kh',
-                          'data' => 'value'
-                      ],
-                      [
-                          'type' => 'postback',
-                          'label' => '１２～１４時',
-                          'text' => '12~14kh',
-                          'data' => 'value'
-                      ],
-                      [
-                          'type' => 'postback',
-                          'label' => 'それ以降の時刻',
-                          'text' => 'kh2',
-                          'data' => 'value'
-                      ]
-          ]
-      ]
-  ];
+    $messageData = [
+        'type' => 'template',
+        'altText' => '時間帯選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '京橋発松井山手・木津方面',
+            'text' => '何時くらい？',
+            'actions' => [
+                [
+                    'type' => 'postback',
+                    'label' => '６～８時',
+                    'text' => '6~8kh',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '９～１１時',
+                    'text' => '9~11kh',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '１２～１４時',
+                    'text' => '12~14kh',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => 'それ以降の時刻',
+                    'text' => 'kh2',
+                    'data' => 'value'
+                ]
+            ]
+        ]
+    ];
 }
 elseif ($text == 'kh2') {
 
@@ -115,31 +167,31 @@ elseif ($text == 'kh2') {
             'title' => '京橋発松井山手・木津方面',
             'text' => '何時くらい？',
             'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => '１５～１７時',
-                            'text' => '15~17kh',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '１８～２０時',
-                            'text' => '18~20kh',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '２１～２４時',
-                            'text' => '21~24kh',
-                            'data' => 'value'
-                        ]
+                [
+                    'type' => 'postback',
+                    'label' => '１５～１７時',
+                    'text' => '15~17kh',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '１８～２０時',
+                    'text' => '18~20kh',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '２１～２４時',
+                    'text' => '21~24kh',
+                    'data' => 'value'
+                ]
             ]
         ]
     ];
 }
 
 //***長尾駅の向き**************************************************************************************************************************************************************************
-elseif ($text == 'NagaoSt' || $text == '長尾駅発') {
+elseif ($text == 'NagaoSt' or $text == '長尾駅発') {
 
     $messageData = [
         'type' => 'template',
@@ -169,7 +221,7 @@ elseif ($text == 'NagaoSt' || $text == '長尾駅発') {
 }
 
 //***バスの行き先選択***********************************************************************************************************************************************************************
-elseif ($text == 'Localbus' || $text == 'バス' || $text == 'bus') {
+elseif ($text == 'Localbus' or $text == 'バス' or $text == 'bus') {
 
     $messageData = [
         'type' => 'template',
@@ -223,24 +275,24 @@ elseif ($text == 'goNag') {
             'title' => '北山中央→→→長尾駅',
             'text' => '何時くらい？',
             'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => '９～１１時',
-                            'text' => '9~11bd',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '１２～１４時',
-                            'text' => '12~14bd',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => 'それ以降の時刻',
-                            'text' => 'goNag2',
-                            'data' => 'value'
-                        ]
+                [
+                    'type' => 'postback',
+                    'label' => '９～１１時',
+                    'text' => '9~11bd',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '１２～１４時',
+                    'text' => '12~14bd',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => 'それ以降の時刻',
+                    'text' => 'goNag2',
+                    'data' => 'value'
+                ]
             ]
         ]
     ];
@@ -255,24 +307,24 @@ elseif ($text == 'goNag2') {
             'title' => '北山中央→→→長尾駅',
             'text' => '何時くらい？',
             'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => '１５～１７時',
-                            'text' => '15~17bd',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '１８～２０時',
-                            'text' => '18~20bd',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '２１時',
-                            'text' => '21bd',
-                            'data' => 'value'
-                        ]
+                [
+                    'type' => 'postback',
+                    'label' => '１５～１７時',
+                    'text' => '15~17bd',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '１８～２０時',
+                    'text' => '18~20bd',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '２１時',
+                    'text' => '21bd',
+                    'data' => 'value'
+                ]
             ]
         ]
     ];
@@ -289,30 +341,30 @@ elseif ($text == 'goKita') {
             'title' => '長尾駅→→→北山中央',
             'text' => '何時くらい？',
             'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => '６～８時',
-                            'text' => '6~8bu',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '９～１１時',
-                            'text' => '9~11bu',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '１２～１４時',
-                            'text' => '12~14bu',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => 'それ以降の時刻',
-                            'text' => 'goKita2',
-                            'data' => 'value'
-                        ]
+                [
+                    'type' => 'postback',
+                    'label' => '６～８時',
+                    'text' => '6~8bu',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '９～１１時',
+                    'text' => '9~11bu',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '１２～１４時',
+                    'text' => '12~14bu',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => 'それ以降の時刻',
+                    'text' => 'goKita2',
+                    'data' => 'value'
+                ]
             ]
         ]
     ];
@@ -327,24 +379,24 @@ elseif ($text == 'goKita2') {
             'title' => '長尾駅→→→北山中央',
             'text' => '何時くらい？',
             'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => '１５～１７時',
-                            'text' => '15~17bu',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '１８～２０時',
-                            'text' => '18~20bu',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '２１時',
-                            'text' => '21bu',
-                            'data' => 'value'
-                        ]
+                [
+                    'type' => 'postback',
+                    'label' => '１５～１７時',
+                    'text' => '15~17bu',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '１８～２０時',
+                    'text' => '18~20bu',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '２１時',
+                    'text' => '21bu',
+                    'data' => 'value'
+                ]
             ]
         ]
     ];
@@ -361,24 +413,24 @@ elseif ($text == 'goKuz') {
             'title' => '北山中央→→→楠葉駅',
             'text' => '何時くらい？',
             'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => '１０～１１時',
-                            'text' => '10~11kd',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '１２～１４時',
-                            'text' => '12~14kd',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => 'それ以降の時刻',
-                            'text' => 'goKuz2',
-                            'data' => 'value'
-                        ]
+                [
+                    'type' => 'postback',
+                    'label' => '１０～１１時',
+                    'text' => '10~11kd',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '１２～１４時',
+                    'text' => '12~14kd',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => 'それ以降の時刻',
+                    'text' => 'goKuz2',
+                    'data' => 'value'
+                ]
             ]
         ]
     ];
@@ -393,24 +445,24 @@ elseif ($text == 'goKuz2') {
             'title' => '北山中央→→→楠葉駅',
             'text' => '何時くらい？',
             'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => '１５～１７時',
-                            'text' => '15~17kd',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '１８～２０時',
-                            'text' => '18~20kd',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '２１時～２３時',
-                            'text' => '21~24kd',
-                            'data' => 'value'
-                        ]
+                [
+                    'type' => 'postback',
+                    'label' => '１５～１７時',
+                    'text' => '15~17kd',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '１８～２０時',
+                    'text' => '18~20kd',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '２１時～２３時',
+                    'text' => '21~24kd',
+                    'data' => 'value'
+                ]
             ]
         ]
     ];
@@ -427,30 +479,30 @@ elseif ($text == 'goKitafK') {
             'title' => '楠葉駅→→→北山中央',
             'text' => '何時くらい？',
             'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => '６～８時',
-                            'text' => '6~8ku',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '９～１１時',
-                            'text' => '9~11ku',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '１２～１４時',
-                            'text' => '12~14ku',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => 'それ以降の時刻',
-                            'text' => 'goKitafK2',
-                            'data' => 'value'
-                        ]
+                [
+                    'type' => 'postback',
+                    'label' => '６～８時',
+                    'text' => '6~8ku',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '９～１１時',
+                    'text' => '9~11ku',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '１２～１４時',
+                    'text' => '12~14ku',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => 'それ以降の時刻',
+                    'text' => 'goKitafK2',
+                    'data' => 'value'
+                ]
             ]
         ]
     ];
@@ -465,24 +517,24 @@ elseif ($text == 'goKitafK2') {
             'title' => '楠葉駅→→→北山中央',
             'text' => '何時くらい？',
             'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => '１５～１７時',
-                            'text' => '15~17ku',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '１８～２０時',
-                            'text' => '18~20ku',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '２１時～２３時',
-                            'text' => '21~23ku',
-                            'data' => 'value'
-                        ]
+                [
+                    'type' => 'postback',
+                    'label' => '１５～１７時',
+                    'text' => '15~17ku',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '１８～２０時',
+                    'text' => '18~20ku',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '２１時～２３時',
+                    'text' => '21~23ku',
+                    'data' => 'value'
+                ]
             ]
         ]
     ];
