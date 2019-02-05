@@ -364,13 +364,13 @@ elseif ($text == 'goKuz') {
                         [
                             'type' => 'postback',
                             'label' => '１０～１１時',
-                            'text' => '10~11kk',
+                            'text' => '10~11kd',
                             'data' => 'value'
                         ],
                         [
                             'type' => 'postback',
                             'label' => '１２～１４時',
-                            'text' => '12~14kk',
+                            'text' => '12~14kd',
                             'data' => 'value'
                         ],
                         [
@@ -396,19 +396,19 @@ elseif ($text == 'goKuz2') {
                         [
                             'type' => 'postback',
                             'label' => '１５～１７時',
-                            'text' => '15~17kk',
+                            'text' => '15~17kd',
                             'data' => 'value'
                         ],
                         [
                             'type' => 'postback',
                             'label' => '１８～２０時',
-                            'text' => '18~20kk',
+                            'text' => '18~20kd',
                             'data' => 'value'
                         ],
                         [
                             'type' => 'postback',
                             'label' => '２１時～２３時',
-                            'text' => '21~24kk',
+                            'text' => '21~24kd',
                             'data' => 'value'
                         ]
             ]
@@ -430,19 +430,19 @@ elseif ($text == 'goKitafK') {
                         [
                             'type' => 'postback',
                             'label' => '６～８時',
-                            'text' => '6~8fk',
+                            'text' => '6~8ku',
                             'data' => 'value'
                         ],
                         [
                             'type' => 'postback',
                             'label' => '９～１１時',
-                            'text' => '9~11fk',
+                            'text' => '9~11ku',
                             'data' => 'value'
                         ],
                         [
                             'type' => 'postback',
                             'label' => '１２～１４時',
-                            'text' => '12~14fk',
+                            'text' => '12~14ku',
                             'data' => 'value'
                         ],
                         [
@@ -468,19 +468,19 @@ elseif ($text == 'goKitafK2') {
                         [
                             'type' => 'postback',
                             'label' => '１５～１７時',
-                            'text' => '15~17fk',
+                            'text' => '15~17ku',
                             'data' => 'value'
                         ],
                         [
                             'type' => 'postback',
                             'label' => '１８～２０時',
-                            'text' => '18~20fk',
+                            'text' => '18~20ku',
                             'data' => 'value'
                         ],
                         [
                             'type' => 'postback',
                             'label' => '２１時～２３時',
-                            'text' => '21~23fk',
+                            'text' => '21~23ku',
                             'data' => 'value'
                         ]
             ]
