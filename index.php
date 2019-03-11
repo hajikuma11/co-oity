@@ -1,28 +1,33 @@
-<?
-echo 'phpのテストです。<br>';
-$dbinfo = parse_url(getenv('DATABASE_URL'));
-$dsn = 'pgsql:host=' . $dbinfo['host'] . ';dbname=' . substr($dbinfo['path'], 1);
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <meta name="description" content="どのような内容であるかを簡潔にまとめた概要">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
 
-try {
- // データベースと接続
- $dbh = new PDO($dsn, $dbinfo['user'], $dbinfo['pass']);
- // テーブル作成のためのSQL
- $sql = "CREATE TABLE menu (
-	id int PRIMARY KEY,
-	name varchar(50),
-	price int,
-	modify_datetime date,
-	create_datetime date
-)";
- // SQLクエリ実行
- $res = $dbh->query( $sql);
- var_dump($res);
+<header>
+    <h1>見出しレベル1</h1>
+    <nav>
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+        </ul>
+    </nav>
+</header>
 
-} catch(PDOException $e) {
+<article>
+    <h2>見出しレベル2</h2>
+    <p>コンテンツ内容(段落)</p>
+</article>
 
- var_dump($e->getMessage());
-}
+<footer>
+    &copy; 2018 sitename.
+</footer>
 
-// データベースの接続を切断
-$dbh = null;
+</body>
+</html>
+<?php
+
 ?>
