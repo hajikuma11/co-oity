@@ -13,7 +13,7 @@
     
     <table>
         <tr>
-            <div class='midasi'>バス時刻表示機能</div>
+            <th>バス時刻表 表示機能</th>
         </tr>
         <tr>
             <th>反応する文字列</th>
@@ -23,7 +23,7 @@
         <tr>
             <td>6bu</td>
             <td>6時台の北山中央行きのバスの時刻を表示します。</td>
-            <td>User:6bu<br>Oity:6時12,34,56(この時刻は例えです)</td>
+            <td>User:6bu<br>Oity:6時12,34,56<br>(この時刻は例えです)</td>
         </tr>
         
     </table>
