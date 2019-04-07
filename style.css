@@ -1,17 +1,22 @@
 body {
 font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
 white-space: nowrap;
-font-size: 2.35vw;
+font-size: 2.4vw;
 }
 
 .danraku {
   font-weight: bold;
   font-size: 1.3em;
 }
+.syou {
+  font-size: 1.5em;
+  border-top: 2px solid;
+}
 
 table {
   width: 90vw;
   border: 2px solid;
+  margin-bottom: 1em;
 }
 
 th, td {
@@ -21,12 +26,15 @@ th, td {
   border-left: 1px solid;
 }
 
+th {
+  background-color: #BBBCCC;
+}
+
 span {
   font-weight: bold;
 }
 
 .kotoba {
-  font-weight: bold;
   text-align: center;
 }
 
