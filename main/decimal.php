@@ -650,7 +650,7 @@ if ($s_text >= 1) {
             'text' => "[2]$val"
         ];
 
-    } elseif (strstr($text,'2進数')) {
+    } elseif (strstr($text,'2進数') && strstr($text,'-') == false) {
         if (strlen($s_text) > 15) {
             $reData = '111111111111111111111';
         } else {
