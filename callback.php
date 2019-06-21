@@ -1,6 +1,5 @@
 <?php
-
- //***アクセストークン**********************************************************************************************************************************************************************
+//***アクセストークン**********************************************************************************************************************************************************************
 $accessToken = '3SO5+xOCmVwoZZk8ueOVvXJUJAWdxRD+emfHXzqQZdla6zBBXiBnq40VPsyWmCVez0qCq6oar6sef6xBWuFqKEV+pk4OEU15IumsBaR8TgUlgK7VYzXUyyszZd2UIc3XYSrBnk6ymcIVXJa5H6GlRgdB04t89/1O/w1cDnyilFU=';
 
 //***変数宣言****************************************************************************************************************************************************************************
@@ -17,9 +16,7 @@ $msgFlag = 0;
 
 if ($jsonObj->events[0]->type == 'postback') {
     if ($jsonObj->events[0]->postback->data != 'value') {
-        $postback = $jsonObj->events[0]->postback->data;
-        parse_str($postback, $data);
-        $text = $data["mess"];
+        $text = $jsonObj->events[0]->postback->data;
     }
 }
 $text = trim($text);
@@ -38,7 +35,7 @@ if ($text == 'forecast' or $text == '天気予報' or $text == 'てんきよほ�
 
 }
 
-elseif ($text == 'WeekOsaka' or $text == 'WeekKyoto' or $text == 'WeekHyogo' or $text == 'WeekWakayama') {
+elseif ($text == 'weekosaka' or $text == 'weekkyoto' or $text == 'weekhyogo' or $text == 'weekwakayama') {
     require_once __DIR__ . ("/main/weath.php");
 }
 
@@ -64,6 +61,29 @@ elseif ($text == 'オールなう' or $text == 'オールナウ' or $text == '�
 elseif (strstr($text,'進数')) {
     require_once __DIR__ . ("/main/decimal.php");
 }
+
+elseif ($text == 'getprofile') {
+    $AfterConID = substr($userID, 0, 2);
+    $BeforeConID = substr($userID, 30, 32);
+    $conID = $BeforeConID.$AfterConID;
+    $messageData = [
+        'type' => 'text',
+        'text' => $conID
+    ];
+}
+
+elseif ($text == 'ど田舎') {
+    require_once __DIR__ . ("/main/weath.php");
+}
+
+elseif ($text == 'じゃんけん' or strstr($text,'gcp')) {
+    require_once __DIR__ . ("/main/gcp.php");
+}
+
+elseif (strstr($text,"def:")) {
+    require_once ("main/def.php");
+}
+
 //***レスポンス系*****************************************************************************************************************************************************************************
 if ($msgFlag == 1) {
     $response = [
@@ -81,17 +101,23 @@ if ($msgFlag == 1) {
         'messages' => [$messageData]
     ];
 }
-error_log(json_encode($response));
+error_log('[[[KAIHATU]]]'.json_encode($response));
 
-$ch = curl_init('https://api.line.me/v2/bot/message/reply');
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($response));
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    'Content-Type: application/json; charser=UTF-8',
-    'Authorization: Bearer ' . $accessToken
-));
-$result = curl_exec($ch);
-error_log($result);
-curl_close($ch);
+if ($messageData != NULL) {
+
+    $ch = curl_init('https://api.line.me/v2/bot/message/reply');
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($response));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/json; charser=UTF-8',
+        'Authorization: Bearer ' . $accessToken
+    ));
+    $result = curl_exec($ch);
+    if ($result != '{}') {
+        error_log('[[[KAIHATU]]]'.$result);
+    }
+    curl_close($ch);
+
+}

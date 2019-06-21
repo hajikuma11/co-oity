@@ -44,7 +44,7 @@
                 "action": {
                   "type": "postback",
                   "label": "大阪府",
-                  "text": "WeekOsaka",
+                  "text": "weekosaka",
                   "data": "value"
                 }
               }
@@ -61,7 +61,7 @@
                 "action": {
                   "type": "postback",
                   "label": "京都府",
-                  "text": "WeekKyoto",
+                  "text": "weekkyoto",
                   "data": "value"
                 }
               }
@@ -78,7 +78,7 @@
                 "action": {
                   "type": "postback",
                   "label": "兵庫県",
-                  "text": "WeekHyogo",
+                  "text": "weekhyogo",
                   "data": "value"
                 }
               }
@@ -95,7 +95,7 @@
                 "action": {
                   "type": "postback",
                   "label": "和歌山県",
-                  "text": "WeekWakayama",
+                  "text": "weekwakayama",
                   "data": "value"
                 }
               }

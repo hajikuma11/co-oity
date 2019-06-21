@@ -1,18 +1,17 @@
 <?php
+require_once __DIR__.'/../vendor/autoload.php';
+date_default_timezone_set('Asia/Tokyo');
 
-require_once '/app/vendor/autoload.php';
-date_default_timezone_set("Asia/Tokyo");
-
-if ($text == 'WeekOsaka') {
+if ($text == 'weekosaka') {
     $URL = 'https://www.jma.go.jp/jp/week/331.html';
     $loc = '大阪府 ';
-} elseif ($text == 'WeekKyoto') {
+} elseif ($text == 'weekkyoto') {
     $URL = 'https://www.jma.go.jp/jp/week/333.html';
     $loc = '京都府 ';
-} elseif ($text == 'WeekHyogo') {
+} elseif ($text == 'weekhyogo') {
     $URL = 'https://www.jma.go.jp/jp/week/332.html';
     $loc = '兵庫県 ';
-} elseif ($text == 'WeekWakayama') {
+} elseif ($text == 'weekwakayama') {
     $URL = 'https://www.jma.go.jp/jp/week/336.html';
     $loc = '和歌山県';
 }
@@ -38,16 +37,16 @@ $txt = $tenk = $kous = $max = $min = "";
 $cntKous = $cntmax = $endcnt = 0;
 
 for ($i=0;$i<50;$i++) {
-    $cont = trim(preg_replace('/[\t|\s{,}]/', '', $contArr[$i]));
-    if ($cont == "") {
-    } else {
-        if (strstr($cont,"晴")||strstr($cont,"曇")||strstr($cont,"雨")||strstr($cont,"雪")) {
+   $cont = trim(preg_replace('/[\t|\s{,}]/', '', $contArr[$i]));
+   if ($cont == "") {
+   } else {
+       if (strstr($cont,"晴")||strstr($cont,"曇")||strstr($cont,"雨")||strstr($cont,"雪")) {
             $cont = str_replace("晴","☀️",$cont);
-            $cont = str_replace("曇","☁️",$cont);
-            $cont = str_replace("雨","☔️",$cont);
-            $cont = str_replace("雪","❄️",$cont);
+           $cont = str_replace("曇","☁️",$cont);
+           $cont = str_replace("雨","☔️",$cont);
+           $cont = str_replace("雪","❄️",$cont);
             $tenk .= $cont."&";
-        } else if (strstr($cont,"/")) {
+       } else if (strstr($cont,"/")) {
             $cont2 = substr($cont,0, 2);
             if (is_numeric($cont2)) {
             } else {
@@ -55,21 +54,21 @@ for ($i=0;$i<50;$i++) {
             }
             $kous .= $cont2."&";
             $cntKous++;
-        } else if ($cntKous > 0 && $cntKous < 7) {
+       } else if ($cntKous > 0 && $cntKous < 7) {
             $kous .= $cont."&";
             $cntKous++;
-        } else if ($cntKous >= 7 && $cntmax <7) {
+       } else if ($cntKous >= 7 && $cntmax <7) {
             if (strstr($cont,"(") == false) {
-                $max .= $cont."&";
-                $cntmax++;
+            $max .= $cont."&";
+            $cntmax++;
             }
-        } else {
-            if (strstr($cont,"(") == false) {
-                $min .= $cont."&";
-                $endcnt++;
-            }
-        }
-    }
+       } else {
+           if (strstr($cont,"(") == false) {
+               $min .= $cont."&";
+               $endcnt++;
+           }
+       }
+   }
 }
 
 $tenkArr = explode("&", $tenk);
@@ -113,13 +112,13 @@ for ($i=0;$i<7;$i++) {
     $forRain[] = $kousArr[$i]."%";
     $maxTemp[] = $maxArr[$i]."°C";
     $minTemp[] = $minArr[$i]."°C";
-    /* $day = 日付
-     * $weatherData = 天気
-     * $forRain = 降水確率
-     * $maxTemp = 最高気温
-     * $minTemp = 最低気温
-     * $timestmp = 更新日時
-     * */
+                /* $day = 日付
+                 * $weatherData = 天気
+                 * $forRain = 降水確率
+                 * $maxTemp = 最高気温
+                 * $minTemp = 最低気温
+                 * $timestmp = 更新日時
+                 * */
 }
 $messageData = [
     'type' => 'flex',
